@@ -21,7 +21,7 @@ const RegisterInput = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const {creatUser} = UserAuth();
+  const {createUser} = UserAuth();
   const navigate = useNavigate();
   const storage = getStorage(firebaseApp);
 
@@ -29,7 +29,7 @@ const RegisterInput = () => {
     e.preventDefault();
     setError('');
     try{
-      const { user } = await creatUser(email, password);
+      const { user } = await createUser(email, password);
       console.log(user);
       //adding data to firestore
       await setDoc(doc(authDb, "users", user.uid), {
@@ -55,8 +55,9 @@ const RegisterInput = () => {
       updateProfile(auth.currentUser, {
         displayName: username,
         photoURL: picture,
+        uid: user.uid,
       })
-      navigate()
+      navigate('/dashboard', {replace: true});
     }catch(e){
       setError(e.message);
       console.log(e.message);

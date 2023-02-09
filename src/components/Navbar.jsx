@@ -56,7 +56,7 @@ const Navbar = () => {
         </div>
         <div className="flex flex-row md:hidden">
             <AiOutlineSearch className="w-10 h-6" />
-            <div className="hidden" onClick={handleClick}>
+            <div className="md:hidden" onClick={handleClick}>
                 {!nav ? (
                     <HiMenu className="w-6 h-7" />
                 ):(
