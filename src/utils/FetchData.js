@@ -22,3 +22,14 @@ export const getUserInfo = async (userId) => {
         return "No such document"
     }
 };
+
+// fetch the specific video
+export const getSpecificVideo = async (videoId) => {
+    const videoRef = doc(authDb, 'videos', videoId);
+    const videoSnap = await getDoc(videoRef);
+    if(videoSnap.exists){
+        return videoSnap.data();
+    }else{
+        return 'No such document'
+    }
+};
