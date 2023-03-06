@@ -5,8 +5,7 @@ import Spinner from './Spinner';
 import { getSpecificVideo } from '../utils/FetchData';
 
 import { authDb } from '../firebase-config'
-import { Box } from '@chakra-ui/react';
-import ReactPlayer from 'react-player';
+//import ReactPlayer from 'react-player';
 
 const PinDetail = () => {
 
@@ -34,7 +33,7 @@ const PinDetail = () => {
         <Link to='/dashboard'>
           <IoHome fontSize={25} />
         </Link>
-        <Box width={"1px"} height={"25px"} bg={"gray.500"} mx={2}></Box>
+        <div className='w-[1px] h-[25px] bg-gray-500 mx-2'></div>
         <p className='text-semibold w-full'>
           {videoInfo?.title}
         </p>
@@ -42,7 +41,7 @@ const PinDetail = () => {
       <div className='grid grid-cols-3 gap-2 w-full'>
         <div className='w-full col-span-2'>
           <div className='flex w-full bg-black relative'>
-            <ReactPlayer
+            <video
               url={videoInfo?.videoUrl}
               width={'100%'}
               height={'100%'}
